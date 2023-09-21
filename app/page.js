@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   return (
-    <div className='bg-slate-900'>
+    <div className='bg-gradient-to-r from-slate-900 to-blue-900 min-h-screen text-white'>
       {/* Search field and "Get Weather" button */}
       <Navbar
         address={address}
@@ -25,20 +25,24 @@ export default function Home() {
       {/* Current weather card */}
 
       {weatherData && (
-        <div className=''>
-          <CurrentWeather
-            name={weatherData?.current?.name}
-            main={weatherData?.current?.weather[0]?.main}
-            desc={weatherData?.current?.weather[0]?.description}
-            icon={weatherData?.current?.weather[0]?.icon}
-            tempKelvin={weatherData?.current?.main?.temp}
-            updatedAt={weatherData?.forecast?.properties?.updated}
-          />
+        <div className='mt-8 container mx-auto'>
+          <div className='bg-gray-800 rounded-lg shadow-md mb-6'>
+            <CurrentWeather
+              name={weatherData?.current?.name}
+              main={weatherData?.current?.weather[0]?.main}
+              desc={weatherData?.current?.weather[0]?.description}
+              icon={weatherData?.current?.weather[0]?.icon}
+              tempKelvin={weatherData?.current?.main?.temp}
+              updatedAt={weatherData?.forecast?.properties?.updated}
+            />
+          </div>
 
           {/* Forecast weather card */}
-          <div className='flex'>
+          <div className='flex overflow-x-auto space-x-4 h-96'>
             {weatherData.forecast.properties.periods.map((period) => (
-              <ForecastPeriod key={period.number} period={period} />
+              <div className='border rounded-md shadow-sm bg-gray-800 p-2'>
+                <ForecastPeriod key={period.number} period={period} />
+              </div>
             ))}
           </div>
         </div>

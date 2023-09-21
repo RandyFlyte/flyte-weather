@@ -9,22 +9,20 @@ export default function CurrentWeather({
   const tempFahrenheit = (((tempKelvin - 273.15) * 9) / 5 + 32).toFixed(1);
 
   return (
-    <div className='main-card w-96 border rounded-lg shadow-lg overflow-hidden md:ml-16 lg:ml-28'>
+    <div className='main-card border rounded-lg shadow-lg overflow-hidden md:ml-16 lg:ml-28'>
       {/* Top Section */}
       <div className='bg-gray-400 text-amber-950 p-1 '>
         <p className='bg-gray-600 text-2xl'>Location: {name}</p>
         <p className='bg-blue-200 text-xl'>
           Condition: {main}
-          <span className='border uppercase text-sm ml-28'>{desc}</span>
+          <span className='border uppercase text-sm ml-8'>{desc}</span>
         </p>
       </div>
 
       {/* Bottom Section */}
       <div className='flex justify-around'>
         <div className='border'>
-          <span className='text-4xl'>{tempFahrenheit}°F</span>
-          <span className='text-sm block'>Last update:</span>
-          <span className='text-sm block'>{formatDate(updatedAt)}</span>
+          <span className='text-4xl flex pt-8'>{tempFahrenheit}°F</span>
         </div>
 
         <div className='w-24 h-24 border'>
