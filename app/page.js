@@ -40,8 +40,10 @@ export default function Home() {
           {/* Forecast weather card */}
           <div className='flex overflow-x-auto space-x-4 h-96'>
             {weatherData.forecast.properties.periods.map((period) => (
-              <div className='border rounded-md shadow-sm bg-gray-800 p-2'>
-                <ForecastPeriod key={period.number} period={period} />
+              <div
+                key={period.number}
+                className='border rounded-md shadow-sm bg-gray-800 p-2'>
+                <ForecastPeriod period={period} />
               </div>
             ))}
           </div>
